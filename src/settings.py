@@ -124,8 +124,6 @@ USE_TZ = True
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'media')
 
-GEOIP_PATH = os.path.join(BASE_DIR, 'geoip')
-
 STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static')
 
 STATICFILES_DIRS = [
@@ -134,6 +132,6 @@ STATICFILES_DIRS = [
 STATIC_URL = '/static/'
 
 try:
-    from local_settings import *
+    from src.local_settings import *
 except ImportError:
     pass
