@@ -18,7 +18,14 @@ from django.conf.urls.static import static
 from django.conf.urls import url, include
 from django.conf import settings
 
+from .api import router
+
+from mainapp import views
+
 urlpatterns = [
     url('admin/', admin.site.urls),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    # url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    # url(r'^api/$', views.GroupsListView.as_view(), name='subject_list'),
+    # url(r'^api/(?P<pk>\d+)/$', views.GroupsDetailView.as_view(), name='subject_detail'),
+    url(r'^api/', include(router.urls))
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
