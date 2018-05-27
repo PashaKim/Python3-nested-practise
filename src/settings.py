@@ -24,6 +24,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
+LOGIN_REDIRECT_URL ='elements'
 
 # Application definition
 
@@ -69,9 +70,10 @@ TEMPLATES = [
 WSGI_APPLICATION = 'src.wsgi.application'
 
 REST_FRAMEWORK = {
-'DEFAULT_PERMISSION_CLASSES': [
-'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-]
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly'],
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 1
 }
 
 # Database
