@@ -17,6 +17,19 @@ class Groups(models.Model):
         except:
             return '0'
 
+    @property
+    def count_subgroups(self):
+        return self.subgroups.count()
+
+    # @property
+    # def count_subelements(self):
+    #     print(Elements.objects.filter(moderated=True).filter(parrent_group=self.parrent_group))
+    #     try:
+    #         print(self.parrent_group.name)
+    #         return Elements.objects.filter(moderated=True).filter(subgroupselement=self.parrent_group).count()
+    #     except:
+    #         return '--'
+
     # @property
     # def name_subgroup(self):
     #     return self.subgroups.name

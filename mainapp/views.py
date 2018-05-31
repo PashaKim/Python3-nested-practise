@@ -29,6 +29,7 @@ class ElementsView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = ElementsSerializer
     queryset = Elements.objects.filter(moderated=True).all()
 
+
 def signup(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
