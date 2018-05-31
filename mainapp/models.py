@@ -10,7 +10,10 @@ class Groups(models.Model):
     @property
     def name_group(self):
         try:
-            return self.parrent_group.name
+            def __str__(self):
+                return self.parrent_group.name
+
+            return __str__(self)
         except:
             return '0'
 
@@ -34,7 +37,10 @@ class Elements(models.Model):
 
     @property
     def name_group(self):
-        return self.parrent_group.name
+        def __str__(self):
+            return self.parrent_group.name
+
+        return __str__(self)
 
     class Meta:
         verbose_name = 'Элементы'

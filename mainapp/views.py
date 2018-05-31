@@ -3,8 +3,6 @@ from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 from rest_framework.viewsets import ModelViewSet
 
-
-
 from rest_framework import generics, permissions
 from .models import Groups, Elements
 from .serializers import GroupsSerializer, ElementsSerializer
