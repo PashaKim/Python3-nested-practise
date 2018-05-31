@@ -1,8 +1,10 @@
 from django.db import models
 
+
 class Groups(models.Model):
 
-    parrent_group = models.ForeignKey('self', related_name='subgroups', on_delete=models.CASCADE, blank=True, null=True, verbose_name='Родительская группа')
+    parrent_group = models.ForeignKey('self', related_name='subgroups', on_delete=models.CASCADE, blank=True, null=True,
+                                      verbose_name='Родительская группа')
     image = models.ImageField(upload_to='Groups_img', verbose_name='Иконка', null=False)
     name = models.CharField(max_length=64, verbose_name='Название', null=False)
     description = models.TextField(max_length=512, blank=True, null=False, verbose_name='Описание',)
@@ -41,7 +43,8 @@ class Groups(models.Model):
 
 class Elements(models.Model):
 
-    parrent_group = models.ForeignKey(Groups, related_name='subgroupselement', on_delete=models.CASCADE, null=False, verbose_name='Родительская группа')
+    parrent_group = models.ForeignKey(Groups, related_name='subgroupselement', on_delete=models.CASCADE, null=False,
+                                      verbose_name='Родительская группа')
     image = models.ImageField(upload_to='Elements_img', null=False, verbose_name='Иконка')
     name = models.CharField(max_length=64, null=False, verbose_name='Название')
     description = models.TextField(max_length=512, blank=True, null=False, verbose_name='Описание')

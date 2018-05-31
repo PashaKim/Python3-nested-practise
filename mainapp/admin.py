@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import Groups, Elements
 
+
 @admin.register(Groups)
 class GroupsAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'name_group', 'description', 'count_subgroups')
@@ -11,6 +12,7 @@ class GroupsAdmin(admin.ModelAdmin):
 
     name_group.short_description = 'Родительская группа'
     name_group.admin_order_field = 'parrent_group'
+
 
 @admin.register(Elements)
 class ElementsAdmin(admin.ModelAdmin):

@@ -7,9 +7,11 @@ from rest_framework import generics, permissions
 from .models import Groups, Elements
 from .serializers import GroupsSerializer, ElementsSerializer
 
+
 class ReadOnlyPermission(permissions.BasePermission):
     def has_permission(self, request, view):
         return request.method in permissions.SAFE_METHODS
+
 
 class GroupsListView(ModelViewSet):
     serializer_class = GroupsSerializer
