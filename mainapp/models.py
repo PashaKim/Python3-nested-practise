@@ -17,9 +17,9 @@ class Groups(models.Model):
         except:
             return '0'
 
-    @property
-    def name_subgroup(self):
-        return self.subgroups.name
+    # @property
+    # def name_subgroup(self):
+    #     return self.subgroups.name
 
     class Meta:
         verbose_name = 'Группы'
