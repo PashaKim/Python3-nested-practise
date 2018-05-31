@@ -24,7 +24,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
-LOGIN_REDIRECT_URL ='elements'
+LOGIN_REDIRECT_URL ='/api/elements'
 
 # Application definition
 
