@@ -7,17 +7,20 @@ from rest_framework import generics, permissions
 from .models import Groups, Elements
 from .serializers import GroupsSerializer, ElementsSerializer
 
+class ReadOnlyPermission(permissions.BasePermission):
+    def has_permission(self, request, view):
+        return request.method in permissions.SAFE_METHODS
 
 class GroupsListView(ModelViewSet):
     serializer_class = GroupsSerializer
     queryset = Groups.objects.all()
-    permission_classes = (permissions.DjangoModelPermissionsOrAnonReadOnly, )
+    permission_classes = (ReadOnlyPermission, )
 
 
 class GroupsView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = GroupsSerializer
     queryset = Groups.objects.all()
-    permission_classes = (permissions.DjangoModelPermissionsOrAnonReadOnly,)
+    permission_classes = (ReadOnlyPermission, )
 
 
 class ElementsListView(ModelViewSet):
