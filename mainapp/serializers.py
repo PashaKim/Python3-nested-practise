@@ -14,5 +14,5 @@ class GroupsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Groups
         fields = ('id', 'name_group', 'parrent_group',  'name', 'description', 'image', 'subgroupselement',
-                  'name_subgroup')
+                  'name_subgroup', 'count_subgroups', 'count_subelements')
 

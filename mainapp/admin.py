@@ -4,7 +4,7 @@ from .models import Groups, Elements
 
 @admin.register(Groups)
 class GroupsAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'name_group', 'description', 'count_subgroups')
+    list_display = ('id', 'name', 'name_group', 'description')
     raw_id_fields = ('parrent_group',)
 
     def name_group(self, obj):
