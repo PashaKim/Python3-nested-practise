@@ -32,9 +32,9 @@ class Groups(models.Model):
     #     except:
     #         return '--'
 
-    # @property
-    # def name_subgroup(self):
-    #     return self.subgroups.name
+    @property
+    def name_subgroup(self):
+        return ', '.join(sub_group.name for sub_group in self.subgroups.all())
 
     class Meta:
         verbose_name = 'Группы'
