@@ -6,6 +6,7 @@ Rest 3.8
 
 DATABASES is Sqlite3
 
+create src.local_settings.py
 SECRET_KEY in local_settings.py
 
 api/groups/ - список групп 
